@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+        
+<struts>
+	<!-- namespace 针对地址栏访问,http://127.0.1:8080/user/list.do -->
+	<package name="user" extends="struts-default" namespace="/user">
+        <action name="list" class="userAction" method="list">
+            <result>/pages/user/list.jsp</result>
+        </action>
+        <action name="edit" class="userAction" method="edit">
+            <result name="edit">/pages/user/edit.jsp</result>
+        </action>        
+        <!-- <action name="userlist" class="userAction" method="userlist">
+        	<result name="rolelist" type="redirect">
+        		/role/list.do
+        	</result>
+        </action> -->
+	</package>
+</struts>
