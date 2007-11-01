@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+	<!-- <bean id="userManager" class="arm.service.UserManager"/> -->
+	<!-- 采用spring的事务声明,使方法受transaction控制 -->
+	<!-- <bean id="baseTransaction" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true"> 
+	       <property name="transactionManager" ref="transactionManager"/> 
+	       <property name="proxyTargetClass" value="true"/> 
+	       <property name="transactionAttributes"> 
+	           <props> 
+	               <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop> 
+	               <prop key="find*">PROPAGATION_REQUIRED,readOnly</prop> 
+	               <prop key="load*">PROPAGATION_REQUIRED,readOnly</prop> 
+	               <prop key="save*">PROPAGATION_REQUIRED</prop> 
+	               <prop key="add*">PROPAGATION_REQUIRED</prop> 
+	               <prop key="update*">PROPAGATION_REQUIRED</prop> 
+	               <prop key="remove*">PROPAGATION_REQUIRED</prop> 
+	           </props> 
+	       </property> 
+	</bean> 
+	<bean id="userManager" parent="baseTransaction"> 
+	    <property name="target"> 
+	        <bean class="maria.service.UserManager"/> 
+	    </property> 
+	</bean> -->
+	<bean id="userManager" class="maria.service.UserManager"/>
+	<bean id="roleManager" class="maria.service.RoleManager"/>	
+</beans>
