@@ -1,0 +1,15 @@
+#summary One-sentence summary of this page.
+#labels Featured
+
+= Introduction =
+
+基本功能.
+
+
+= Details =
+
+分页标签: 支持传统的分页功能，和显示效果定制的修饰功能
+换肤功能: 支持使用模板换肤，自定义换肤
+内容定制: 可以调整栏目的布局、栏目的数量
+对rss的支持
+文章发布: 支持html格式文章的发布
