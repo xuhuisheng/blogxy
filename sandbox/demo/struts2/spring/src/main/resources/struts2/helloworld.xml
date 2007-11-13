@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- namespace 针对地址栏访问,http://127.0.0.1:8080/helloworld.do -->
+    <package name="helloworld" extends="struts-default" namespace="/">
+        <action name="helloworld" class="helloworldAction">
+            <result>/helloworld.jsp</result>
+        </action>
+    </package>
+
+</struts>
