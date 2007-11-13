@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.google.code.blogxy</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.0.1</version>
+    <relativePath>../</relativePath>
+  </parent>
+  <artifactId>demo</artifactId>
+  <packaging>pom</packaging>
+  <version>0.0.1</version>
+  <name>Demo.</name>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+  </build>
+
+  <modules>
+    <module>struts2</module>
+  </modules>
+
+</project>
