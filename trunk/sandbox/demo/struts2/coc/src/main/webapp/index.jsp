@@ -1,0 +1,1 @@
+<%response.sendRedirect("crud/test.do");%>
