@@ -474,6 +474,26 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.apache.struts</groupId>
+                <artifactId>struts2-codebehind-plugin</artifactId>
+                <version>2.0.11</version>
+            </dependency>
+
+            <!--servlet-2.4¹æ·¶-->
+            <dependency>
+              <groupId>javax.servlet</groupId>
+              <artifactId>servlet-api</artifactId>
+              <version>2.4</version>
+              <scope>provided</scope>
+            </dependency>
+            <!--jsp-2.0¹æ·¶-->
+            <dependency>
+              <groupId>javax.servlet</groupId>
+              <artifactId>jsp-api</artifactId>
+              <version>2.0</version>
+              <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -534,6 +554,7 @@
               <tasks>
                 <delete>
                   <fileset dir="${basedir}" includes="**/*.bak"/>
+                  <fileset dir="${basedir}" includes="**/log.txt"/>
                 </delete>
                 <taskdef resource="net/sf/antcontrib/antlib.xml" classpathref="maven.compile.classpath"/>
                 <if>

@@ -26,6 +26,7 @@
   <modules>
     <module>helloworld</module>
     <module>spring</module>
+    <module>coc</module>
   </modules>
 
 </project>
