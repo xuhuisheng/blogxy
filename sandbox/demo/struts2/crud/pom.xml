@@ -7,10 +7,10 @@
     <version>0.0.1</version>
     <relativePath>../</relativePath>
   </parent>
-  <artifactId>demo-struts2-coc</artifactId>
+  <artifactId>demo-struts2-crud</artifactId>
   <packaging>war</packaging>
   <version>0.0.1</version>
-  <name>COC - struts2 Demo.</name>
+  <name>CRUD - struts2 Demo.</name>
 
     <dependencies>
         <dependency>
@@ -20,6 +20,18 @@
         <dependency>
           <groupId>javax.servlet</groupId>
           <artifactId>servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-spring-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
         </dependency>
     </dependencies>
 
@@ -31,8 +43,8 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <includes>
-            <include>com/google/code/blogxy/demo/struts2/coc/**/*Test.java</include>
-            <include>com/google/code/blogxy/demo/struts2/coc/**/*TestCase.java</include>
+            <include>com/google/code/blogxy/demo/struts2/crud/**/*Test.java</include>
+            <include>com/google/code/blogxy/demo/struts2/crud/**/*TestCase.java</include>
           </includes>
         </configuration>
       </plugin>
