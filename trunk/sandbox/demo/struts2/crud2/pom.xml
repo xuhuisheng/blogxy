@@ -10,7 +10,7 @@
   <artifactId>demo-struts2-crud2</artifactId>
   <packaging>war</packaging>
   <version>0.0.1</version>
-  <name>struts2 and spring and hibernate - struts2 Demo.</name>
+  <name> - struts2 Demo - struts2 and spring and hibernate.</name>
 
     <dependencies>
         <dependency>

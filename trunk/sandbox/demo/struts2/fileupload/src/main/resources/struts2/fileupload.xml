@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- namespace 针对地址栏访问,http://127.0.0.1:8080/fileupload.do -->
+    <package name="fileupload" extends="struts-default">
+        <action name="fileupload" class="com.google.code.blogxy.demo.struts2.fileupload.FileuploadAction">
+            <interceptor-ref name="fileUpload">
+                <!-- 配置允许上传的文件类型，多个用","分隔 -->
+                <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/jpg</param>
+                <!-- 配置允许上传的文件大小，单位字节 -->
+                <param name="maximumSize">102400</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+
+            <!-- 动态设置Action中的savePath属性的值 -->
+            <param name="savePath">/upload</param>
+            <result name="input">/showupload.jsp</result>
+            <result name="success">/showupload.jsp</result>
+        </action>
+        <action name="multifileupload" class="com.google.code.blogxy.demo.struts2.fileupload.MultiFileUploadAction">
+            <interceptor-ref name="fileUpload">
+                <!-- 配置允许上传的文件类型，多个用","分隔 -->
+                <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/jpg</param>
+                <!-- 配置允许上传的文件大小，单位字节 -->
+                <param name="maximumSize">1024000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+
+            <!-- 动态设置Action中的savePath属性的值 -->
+            <param name="savePath">/upload</param>
+            <result name="input">/multifileupload.jsp</result>
+            <result name="success">/multifileupload.jsp</result>
+        </action>
+    </package>
+
+</struts>

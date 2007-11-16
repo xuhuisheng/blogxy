@@ -7,10 +7,25 @@
     <version>0.0.1</version>
     <relativePath>../</relativePath>
   </parent>
-  <artifactId>demo-struts2-helloworld</artifactId>
+  <artifactId>demo-struts2-fileupload</artifactId>
   <packaging>war</packaging>
   <version>0.0.1</version>
-  <name> - struts2 Demo - HelloWorld.</name>
+  <name> - struts2 Demo - file upload.</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+    </dependencies>
 
   <build>
     <defaultGoal>jetty:run</defaultGoal>
@@ -20,8 +35,8 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <includes>
-            <include>com/google/code/blogxy/demo/struts2/helloworld/**/*Test.java</include>
-            <include>com/google/code/blogxy/demo/struts2/helloworld/**/*TestCase.java</include>
+            <include>com/google/code/blogxy/demo/struts2/fileupload/**/*Test.java</include>
+            <include>com/google/code/blogxy/demo/struts2/fileupload/**/*TestCase.java</include>
           </includes>
         </configuration>
       </plugin>

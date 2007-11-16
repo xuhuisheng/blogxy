@@ -30,6 +30,7 @@
     <module>crud</module>
     <module>crud2</module>
     <module>wildcard</module>
+    <module>fileupload</module>
   </modules>
 
 </project>

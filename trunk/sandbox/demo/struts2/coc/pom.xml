@@ -10,7 +10,7 @@
   <artifactId>demo-struts2-coc</artifactId>
   <packaging>war</packaging>
   <version>0.0.1</version>
-  <name>COC - struts2 Demo.</name>
+  <name> - struts2 Demo - COC.</name>
 
     <dependencies>
         <dependency>

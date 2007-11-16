@@ -10,7 +10,7 @@
   <artifactId>demo-struts2-wildcard</artifactId>
   <packaging>war</packaging>
   <version>0.0.1</version>
-  <name>WildCard - struts2 Demo.</name>
+  <name> - struts2 Demo - WildCard.</name>
 
     <dependencies>
         <dependency>
