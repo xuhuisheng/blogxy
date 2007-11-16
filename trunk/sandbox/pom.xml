@@ -554,7 +554,6 @@
               <tasks>
                 <delete>
                   <fileset dir="${basedir}" includes="**/*.bak"/>
-                  <fileset dir="${basedir}" includes="**/log.txt"/>
                 </delete>
                 <taskdef resource="net/sf/antcontrib/antlib.xml" classpathref="maven.compile.classpath"/>
                 <if>
@@ -589,6 +588,8 @@
                     <include name="cobertura.ser"/>
                     <include name="*.log"/>
                     <include name="*.log.*"/>
+                    <include name="*.log.*"/>
+                    <include name="log.txt"/>
                   </fileset>
                 </delete>
               </tasks>

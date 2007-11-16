@@ -28,6 +28,7 @@
     <module>spring</module>
     <module>coc</module>
     <module>crud</module>
+    <module>crud2</module>
   </modules>
 
 </project>

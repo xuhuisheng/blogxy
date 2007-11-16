@@ -5,6 +5,7 @@
 <struts>
     <include file="struts-default.xml"/>
 
+    <constant name="struts.objectFactory" value="spring"/>
     <constant name="struts.action.extension" value="do"/>
     <constant name="struts.locale" value="zh_CN"/>
     <constant name="struts.i18n.encoding" value="UTF-8"/>
