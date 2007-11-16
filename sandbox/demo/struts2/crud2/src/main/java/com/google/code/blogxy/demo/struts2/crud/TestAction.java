@@ -35,7 +35,7 @@ public class TestAction extends ActionSupport
      */
     @SuppressWarnings("unused")
     private HttpServletResponse response;
-    private TestManager entityManager = TestManager.getInstance();
+    private TestManager entityManager;
     private Test entity = new Test();
     private Long id;
 
@@ -45,6 +45,10 @@ public class TestAction extends ActionSupport
         if (id != null) {
             entity = entityManager.get(id);
         }
+    }
+
+    public void setTestManager(TestManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     public void setId(Long id) {
