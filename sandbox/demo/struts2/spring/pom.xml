@@ -10,7 +10,7 @@
   <artifactId>demo-struts2-spring</artifactId>
   <packaging>war</packaging>
   <version>0.0.1</version>
-  <name>Spring - struts2 Demo.</name>
+  <name> - struts2 Demo - Spring.</name>
 
     <dependencies>
         <dependency>

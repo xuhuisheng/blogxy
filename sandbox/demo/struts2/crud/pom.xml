@@ -10,7 +10,7 @@
   <artifactId>demo-struts2-crud</artifactId>
   <packaging>war</packaging>
   <version>0.0.1</version>
-  <name>CRUD - struts2 Demo.</name>
+  <name> - struts2 Demo - CRUD.</name>
 
     <dependencies>
         <dependency>
