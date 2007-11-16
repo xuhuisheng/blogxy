@@ -29,6 +29,7 @@
     <module>coc</module>
     <module>crud</module>
     <module>crud2</module>
+    <module>wildcard</module>
   </modules>
 
 </project>
