@@ -57,6 +57,7 @@ public class TestAction extends ActionSupport
 
         return "insert";
     }
+
     public String save() throws Exception {
         System.out.println("save");
 
