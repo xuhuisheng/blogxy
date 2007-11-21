@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <meta http-equiv="Cache-Control" content="no-store"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="Expires" content="0"/>
+        <title>多选树形</title>
+    </head>
+    <body>
+        <input type="button" id="exp" value="Expand All Nodes" />
+        <input type="button" id="coll" value="Collapse All Nodes" />
+        <input type="button" id="ser" value="Serialize Checked Nodes" />
+        <br />
+        <div id="c"><pre class="code"></pre></div>
+        <b>Checked Nodes: </b> <input type="text" id="cn" value="" size="40" autocomplete="off" /><br />
+        <br />
+        <div id="checkbox-tree" style="overflow:auto; height:300px;width:300px;border:1px solid #c3daf9;"></div>
+        <script type="text/javascript">
+App = {};
+Ext.BLANK_IMAGE_URL = 'ext-2.0-rc1/resources/images/default/s.gif';
+App.checkboxTree = {
+    init : function() {
+        tree = new Ext.tree.TreePanel({
+            el : 'checkbox-tree',
+            animate : true,
+            loader  : new Ext.tree.CustomUITreeLoader({
+                dataUrl : '6-checkboxtree.txt',
+                baseAttr : {
+                    uiProvider : Ext.tree.CheckboxNodeUI
+                }
+            }),
+            enableDD        : false,
+            containerScroll : true,
+            //rootUIProvider  : Ext.tree.CheckboxNodeUI,
+            //selModel        : new Ext.tree.CheckNodeMultiSelectionModel(),
+            rootVisible     : false
+        });
+
+        tree.on('check', function() {
+            Ext.get('cn').dom.value = this.getChecked().join(',');
+        }, tree);
+
+        // 设置根节点
+        root = new Ext.tree.AsyncTreeNode({
+            text       : 'root',
+            draggable  : false,
+            id         : 'source',
+            uiProvider : Ext.tree.CheckboxNodeUI
+        });
+        tree.setRootNode(root);
+
+        // 渲染树
+        tree.render();
+        root.expand(false, false, function() {
+            root.firstChild.expand(false);
+            ser();
+        });
+
+        Ext.get('exp').on('click', function() {
+            tree.expandAll();
+        });
+
+        Ext.get('coll').on('click', function() {
+            tree.collapseAll();
+        });
+
+        Ext.get('ser').on('click', ser);
+    }
+};
+
+ser = function() {
+    var c = Ext.get('c');
+    c.dom.style.display='block';
+    c.dom.firstChild.innerHTML = tree.getChecked();
+    Ext.get('cn').dom.value = tree.getChecked().join(',');
+};
+
+App.checkboxTree.init();
+        </script>
+    </body>
+</html>

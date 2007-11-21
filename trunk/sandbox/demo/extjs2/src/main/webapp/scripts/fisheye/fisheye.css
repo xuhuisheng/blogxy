@@ -1,0 +1,56 @@
+/*--------------------------------------------------------------------------
+ * Basic fisheye contributed by Ronald van Raaphorst
+ *
+ * Modified for Ext by Matjaž Lipuš
+ *
+ * Fisheye css
+ *--------------------------------------------------------------------------*/
+
+.fisheye {
+    position: relative;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    border: 0px solid red;
+    padding: 0;
+}
+
+.fisheye ul {
+list-style: none;
+padding: 0;
+margin: 0;
+height: 81px;
+}
+
+.fisheye ul li {
+position: absolute;
+display: block;
+float: left;
+top: 5px;
+left: 0;
+right: 0;
+margin-left: 0;
+margin-right: 0;
+}
+
+.fisheye ul li a {
+text-decoration: none;
+}
+
+.fisheye ul li a img {
+    position: absolute;
+    border: 0;
+    vertical-align: top;
+}
+
+.fisheye ul li a span {
+    position: absolute;
+    text-align: center;
+    width: 79px;
+    padding: 1px;
+    margin: 0;
+    border: solid 1px #bbb;
+    color: #333;
+    background: #eee;
+}
+

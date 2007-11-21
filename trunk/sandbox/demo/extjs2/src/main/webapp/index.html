@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>例子</title>
+        <link rel="stylesheet" type="text/css" href="ext-2.0-rc1/resources/css/ext-all.css" />
+        <script type="text/javascript" src="ext-2.0-rc1/adapter/ext/ext-base.js"></script>
+        <script type="text/javascript" src="ext-2.0-rc1/ext-all-debug.js"></script>
+        <script type="text/javascript" src="scripts/fisheye/fisheye.js"></script>
+        <link type="text/css" href="scripts/fisheye/fisheye.css" rel="stylesheet"/>
+        <script type="text/javascript" src="scripts/treefield/Ext.lingo.TreeField.js"></script>
+        <script type="text/javascript" src="scripts/checkboxtree/Ext.lingo.JsonCheckBoxTree.js"></script>
+        <style type="text/css">
+html, body {
+    font:normal 12px verdana;
+    margin:0;
+    padding:0;
+    border:0 none;
+    overflow:hidden;
+    height:100%;
+}
+p {
+    margin:5px;
+}
+.settings {
+    background-image:url(images/icons/fam/folder_wrench.png);
+}
+.nav {
+    background-image:url(images/icons/fam/folder_go.png);
+}
+        </style>
+        <script type="text/javascript">
+Ext.BLANK_IMAGE_URL = 'ext-2.0-rc1/resources/images/default/s.gif';
+Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+
+App = {
+    init : function() {
+        var tabs = new Ext.TabPanel({
+            id:'center-tabpanel',
+            region:'center',
+            deferredRender:true,
+            activeTab:0,
+            items:[{
+                contentEl:'center-main',
+                title: '欢迎页面',
+                closable:false,
+                autoScroll:true,
+                autoLoad:{url:'0-welcome.html',scripts:false}
+            }/*,{
+                title:'iframe',
+                closable:true,
+                html:'<iframe width="100%" height="100%" frameborder="0" scrolling="no" src="0-welcome.html"></iframe>'
+            }*/]
+        });
+        App.tabs = tabs;
+
+        var viewport = new Ext.Viewport({
+            layout:'border',
+            items:[
+                new Ext.BoxComponent({ // raw
+                    region:'north',
+                    el:'north',
+                    height:50
+                }),
+                new Ext.BoxComponent({
+                    region:'south',
+                    el:'south',
+                    height:20
+                }),{
+                    region:'west',
+                    id:'west-panel',
+                    title:'West',
+                    split:true,
+                    width:200,
+                    minSize:175,
+                    maxSize:400,
+                    collapsible:true,
+                    margins:'0 0 0 5',
+                    layout:'accordion',
+                    layoutConfig:{
+                        animate:true
+                    }
+                },tabs
+             ]
+        });
+        Ext.Ajax.request({
+            url:'menu.txt',
+            success:function(response){
+                var west = viewport.findById('west-panel');
+                var menuList = Ext.decode(response.responseText)
+                for (var i = 0; i < menuList.length; i++){
+                    var item = menuList[i];
+                    item.html = '<div style="text-align:center">' +
+                        '<a href="#" onclick="App.changeUrl(\'' + item.title + '\',\'' + item.url + '\')">' +
+                        item.title +
+                        '</a></div>';
+                    west.add(menuList[i]);
+                }
+                west.doLayout();
+            },
+            failure:function(){}
+        });
+        this.makeFisheye.defer(1000);
+    },
+
+    makeFisheye : function() {
+        new Ext.ux.Fisheye("fisheye-menu");
+    },
+
+    changeUrl : function(title, url) {
+        var tabPanel = App.tabs;
+        var alreadyHere = tabPanel.findById(title);
+        if (alreadyHere == null){
+            var tabItem = tabPanel.add({
+                id:title,
+                title:title,
+                closable:true,
+                autoScroll:true,
+                autoLoad:{url:url,scripts:true}
+            });
+            tabPanel.activate(tabItem);
+        } else {
+            tabPanel.activate(alreadyHere);
+        }
+    }
+};
+
+Ext.onReady(App.init, App);
+        </script>
+    </head>
+    <body>
+        <div id="west"></div>
+        <div id="north">
+            <h1>偶们制作的ext2的例子</h1>
+        </div>
+        <div id="center">
+            <div id="center-main"></div>
+        </div>
+        <div id="south" style="text-align:right">
+            <p>made by Lingo. xyz20003@gmail.com</p>
+        </div>
+    </body>
+</html>

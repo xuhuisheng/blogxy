@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>可编辑grid</title>
+    </head>
+    <body>
+            <div id="editor-grid"></div>
+        <script type="text/javascript">
+
+App.editorGrid = {
+    init : function() {
+
+        var reader = new Ext.data.JsonReader({
+            root:'rows',
+            totalProperty:'totalCount',
+            id:"id"
+        }, ['id','name']);
+
+        var ds = new Ext.data.Store({
+            reader:reader,
+            proxy:new Ext.data.HttpProxy({url:'1-crud-grid.txt'}),
+            sortInfo:{field:'name',direction:'desc'}
+        });
+
+        ds.load({params:{start:0, limit:10}});
+
+        ds.setDefaultSort('name', 'desc');
+
+        var cm = new Ext.grid.ColumnModel([
+            {header: "主键", width: 100, sortable: true, dataIndex: 'id',editor: new Ext.form.TextField({
+               allowBlank: false
+            })},
+            {header: "名称", width: 100, sortable: true, dataIndex: 'name',editor: new Ext.form.TextField({
+               allowBlank: false
+            })}
+        ]);
+
+        cm.defaultSortable = true;
+
+        var editorGrid = new Ext.grid.EditorGridPanel({
+            renderTo:'editor-grid',
+            region:'center',
+            //el:'grud-grid',
+            ds: ds,
+            cm: cm,
+            border:false,
+            trackMouseOver:false,
+            viewConfig: {
+                forceFit:true,
+                enableRowBody:true,
+                showPreview:true
+            },
+            //title:'User Grid',
+            //iconCls:'icon-grid',
+            margins:'0 5 5 5',
+            // turn on remote sorting
+            remoteSort: true,
+            loadMask: true,
+            autoScroll:true,
+            tbar:[{
+                text:'Add Something',
+                tooltip:'Add a new row',
+                iconCls:'add',
+                handler:function() {
+                    var record = Ext.data.Record.create([
+                       {name: 'id', type: 'string'},
+                       {name: 'id', type: 'string'}
+                    ]);
+                    var p = new record({id:'',name:''})
+                    editorGrid.stopEditing();
+                    ds.insert(0, p);
+                    editorGrid.startEditing(0, 0);
+                }
+            },'-',{
+                text:'Remove Something',
+                tooltip:'Remove the selected item',
+                iconCls:'remove',
+                handler:function() {
+                    alert('remove');
+                }
+            }],
+            bbar: new Ext.PagingToolbar({
+                pageSize: 10,
+                store: ds,
+                displayInfo: true,
+                displayMsg: 'Displaying rows {0} - {1} of {2}',
+                emptyMsg: "No topics to display"
+            })
+        });
+
+        var viewport = new Ext.Viewport({
+            layout:'border',
+            items:[
+                editorGrid
+            ]
+        });
+    }
+};
+
+App.editorGrid.init();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+[{
+        title:'1. CRUD grid',
+        iconCls:'nav',
+        url:'1-crud-grid.html'
+},{
+        title:'2. editor grid',
+        iconCls:'nav',
+        url:'2-editor-grid.html'
+},{
+        title:'3. CRUD tree',
+        iconCls:'nav',
+        url:'3-crud-tree.html'
+},{
+        title:'4. search grid',
+        iconCls:'nav',
+        url:'4-search-grid.html'
+},{
+        title:'5. TreeField',
+        iconCls:'nav',
+        url:'5-treefield.html'
+},{
+        title:'6. CheckboxTree',
+        iconCls:'nav',
+        url:'6-checkboxtree.html'
+}]
+

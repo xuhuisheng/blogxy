@@ -18,6 +18,7 @@
 
   <modules>
     <module>struts2</module>
+    <module>extjs2</module>
   </modules>
 
 </project>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>原子操作tree</title>
+    </head>
+    <body>
+        <div id="crud-tree"></div>
+        <script type="text/javascript">
+App.crudTree = {
+    init : function() {
+        // shorthand
+        var Tree = Ext.tree;
+
+        var crudTree = new Tree.TreePanel({
+            el:'crud-tree',
+            region:'center',
+            autoScroll:true,
+            animate:true,
+            enableDD:true,
+            containerScroll: true,
+            loader: new Tree.TreeLoader({
+                dataUrl:'3-crud-tree.txt'
+            })
+        });
+
+        // set the root node
+        var root = new Tree.AsyncTreeNode({
+            text: 'Ext JS',
+            draggable:false,
+            id:'source'
+        });
+        crudTree.setRootNode(root);
+
+        // render the tree
+        crudTree.render();
+        root.expand();
+
+        var viewport = new Ext.Viewport({
+            layout:'border',
+            items:[
+                crudTree
+            ]
+        });
+    }
+};
+
+App.crudTree.init();
+        </script>
+    </body>
+</html>

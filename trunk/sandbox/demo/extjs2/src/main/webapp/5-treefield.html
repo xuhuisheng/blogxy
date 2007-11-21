@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <meta http-equiv="Cache-Control" content="no-store"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="Expires" content="0"/>
+        <title>树形下拉框</title>
+    </head>
+    <body>
+        <input id="treefield" type="text">
+        <script type="text/javascript">
+App = {};
+Ext.BLANK_IMAGE_URL = 'ext-2.0-rc1/resources/images/default/s.gif';
+App.treefield = {
+    init : function() {
+        var treeField = new Ext.lingo.TreeField({
+                id           : 'treefield2'
+                , applyTo    : 'treefield'
+                , boxLabel   : 'treefield2'
+                , allowBlank : false
+                , treeConfig : {
+                    title          : 'treefield2'
+                    , rootId       : 0
+                    , height       : 200
+                    , dataTag      : '3-crud-tree.txt'
+                    , treeHeight   : 150
+                    , beforeSelect : function(){}
+                }
+            });
+    }
+};
+
+App.treefield.init();
+        </script>
+    </body>
+</html>
