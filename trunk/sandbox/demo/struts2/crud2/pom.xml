@@ -75,6 +75,10 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
         </dependency>
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+        </dependency>
     </dependencies>
 
   <build>
